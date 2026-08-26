@@ -15,17 +15,21 @@ let state = {
   cellMap: {}, // cellId -> {src, difficulty}
 };
 
-// create helper: generate grid guide cells A1..F3
+// create helper: generate grid guide cells A1..F3 with difficulty classes
 (function generateGrid(){
   const cols = ['A','B','C','D','E','F'];
   const rows = [1,2,3];
+  let idx = 0;
   for(const r of rows){
     for(const c of cols){
       const id = `${c}${r}`;
       const div = document.createElement('div');
-      div.className='cell';
-      div.textContent=id;
+      // assign difficulty classes consistent with the panel: first 6 easy, next 6 medium, last 6 hard
+      const cls = (idx<6)?'easy':(idx<12)?'medium':'hard';
+      div.className = 'cell ' + cls;
+      div.textContent = id;
       gridEl.appendChild(div);
+      idx++;
     }
   }
 })();
