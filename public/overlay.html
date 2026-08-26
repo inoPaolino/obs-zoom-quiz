@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Overlay</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="overlay-root" id="root">
+    <div class="title" id="title">Nome Gioco</div>
+
+    <!-- Player boxes: positions will be set dynamically -->
+    <div id="players-container"></div>
+
+    <!-- Fullscreen image viewer -->
+    <div id="full" class="fullscreen-image hidden">
+      <img id="full-img" src="" alt="zoomed" />
+    </div>
+
+    <!-- Grid guide (optional, visible on overlay if vuoi) -->
+    <div class="grid-overlay">
+      <div class="grid-coords" id="grid">
+        <!-- cells generate in JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/overlay.js"></script>
+</body>
+</html>
